@@ -38,12 +38,12 @@ public class DetalhesContatoDialog extends javax.swing.JDialog {
         iconeLabel.setText("M");
         iconeLabel.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
-        labelNomeContato.setFont(new java.awt.Font("Liberation Sans", 1, 17)); // NOI18N
+        labelNomeContato.setFont(new java.awt.Font("Ubuntu Light", 1, 18)); // NOI18N
         labelNomeContato.setForeground(new java.awt.Color(0, 0, 0));
         labelNomeContato.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         labelNomeContato.setText("Mark");
 
-        labelNumeroContato.setFont(new java.awt.Font("Liberation Sans", 1, 24)); // NOI18N
+        labelNumeroContato.setFont(new java.awt.Font("Ubuntu Light", 1, 24)); // NOI18N
         labelNumeroContato.setForeground(new java.awt.Color(0, 0, 0));
         labelNumeroContato.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         labelNumeroContato.setText("(75) 9 8154-6589");
@@ -51,22 +51,24 @@ public class DetalhesContatoDialog extends javax.swing.JDialog {
         separador.setBackground(new java.awt.Color(204, 204, 204));
         separador.setForeground(new java.awt.Color(153, 153, 153));
 
-        labelDetalhes.setFont(new java.awt.Font("Liberation Sans", 1, 13)); // NOI18N
+        labelDetalhes.setFont(new java.awt.Font("Ubuntu Light", 1, 13)); // NOI18N
         labelDetalhes.setForeground(new java.awt.Color(0, 0, 0));
         labelDetalhes.setText("Detalhes:");
 
-        labelDetalhesTexto.setFont(new java.awt.Font("Liberation Sans", 0, 12)); // NOI18N
+        labelDetalhesTexto.setFont(new java.awt.Font("Ubuntu Light", 1, 13)); // NOI18N
         labelDetalhesTexto.setForeground(new java.awt.Color(0, 0, 0));
         labelDetalhesTexto.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         labelDetalhesTexto.setText("A esposa do Pedro.");
         labelDetalhesTexto.setVerticalAlignment(javax.swing.SwingConstants.TOP);
 
         btnEditar.setBackground(new java.awt.Color(61, 143, 143));
+        btnEditar.setFont(new java.awt.Font("Ubuntu Light", 1, 13)); // NOI18N
         btnEditar.setForeground(new java.awt.Color(255, 255, 255));
         btnEditar.setText("Editar");
         btnEditar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(61, 143, 143)));
 
         btnExcluir.setBackground(new java.awt.Color(255, 255, 255));
+        btnExcluir.setFont(new java.awt.Font("Ubuntu Light", 1, 13)); // NOI18N
         btnExcluir.setForeground(new java.awt.Color(61, 143, 143));
         btnExcluir.setText("Excluir");
         btnExcluir.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(61, 143, 143)));
@@ -114,7 +116,7 @@ public class DetalhesContatoDialog extends javax.swing.JDialog {
                 .addGroup(painelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(24, Short.MAX_VALUE))
+                .addContainerGap(23, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
