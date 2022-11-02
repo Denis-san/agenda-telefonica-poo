@@ -15,19 +15,19 @@ public class ProgramaPrincipalWindow extends javax.swing.JFrame {
     private void initComponents() {
 
         jCheckBoxMenuItem1 = new javax.swing.JCheckBoxMenuItem();
-        jSplitPane1 = new javax.swing.JSplitPane();
-        jPanel3 = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jList1 = new javax.swing.JList<>();
-        jPanel4 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jPanel1 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        splitPanePrincipal = new javax.swing.JSplitPane();
+        panelContatos = new javax.swing.JPanel();
+        scrollContatos = new javax.swing.JScrollPane();
+        listContatos = new javax.swing.JList<>();
+        panelPrincipal = new javax.swing.JPanel();
+        labelImagem = new javax.swing.JLabel();
+        labelPanelNomeContato = new javax.swing.JLabel();
+        labelNumeroContato = new javax.swing.JLabel();
+        panelButtons = new javax.swing.JPanel();
+        buttonAdd = new javax.swing.JButton();
+        buttonI = new javax.swing.JButton();
+        buttonEdit = new javax.swing.JButton();
+        buttonExcluir = new javax.swing.JButton();
 
         jCheckBoxMenuItem1.setSelected(true);
         jCheckBoxMenuItem1.setText("jCheckBoxMenuItem1");
@@ -35,121 +35,121 @@ public class ProgramaPrincipalWindow extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
 
-        jSplitPane1.setDividerLocation(300);
-        jSplitPane1.setDividerSize(2);
+        splitPanePrincipal.setDividerLocation(300);
+        splitPanePrincipal.setDividerSize(2);
 
-        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel3.setMinimumSize(new java.awt.Dimension(300, 100));
+        panelContatos.setBackground(new java.awt.Color(255, 255, 255));
+        panelContatos.setMinimumSize(new java.awt.Dimension(300, 100));
 
-        jScrollPane1.setBorder(null);
+        scrollContatos.setBorder(null);
 
-        jList1.setBackground(new java.awt.Color(255, 255, 255));
-        jList1.setBorder(null);
-        jList1.setFont(new java.awt.Font("Ubuntu Light", 0, 24)); // NOI18N
-        jList1.setForeground(new java.awt.Color(0, 0, 0));
-        jList1.setModel(new javax.swing.AbstractListModel<String>() {
+        listContatos.setBackground(new java.awt.Color(255, 255, 255));
+        listContatos.setBorder(null);
+        listContatos.setFont(new java.awt.Font("Ubuntu Light", 0, 24)); // NOI18N
+        listContatos.setForeground(new java.awt.Color(0, 0, 0));
+        listContatos.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Yudi Tamashiro", "Luke Greenwood", "Lakia Ebert", "Tonia Pipkin" };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
-        jList1.setSelectionBackground(new java.awt.Color(61, 143, 143));
-        jList1.setSelectionForeground(new java.awt.Color(255, 255, 255));
-        jScrollPane1.setViewportView(jList1);
+        listContatos.setSelectionBackground(new java.awt.Color(61, 143, 143));
+        listContatos.setSelectionForeground(new java.awt.Color(255, 255, 255));
+        scrollContatos.setViewportView(listContatos);
 
-        org.jdesktop.layout.GroupLayout jPanel3Layout = new org.jdesktop.layout.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-            .add(jPanel3Layout.createSequentialGroup()
+        org.jdesktop.layout.GroupLayout panelContatosLayout = new org.jdesktop.layout.GroupLayout(panelContatos);
+        panelContatos.setLayout(panelContatosLayout);
+        panelContatosLayout.setHorizontalGroup(
+            panelContatosLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+            .add(panelContatosLayout.createSequentialGroup()
                 .addContainerGap()
-                .add(jScrollPane1, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 288, Short.MAX_VALUE)
+                .add(scrollContatos, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 288, Short.MAX_VALUE)
                 .addContainerGap())
         );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-            .add(org.jdesktop.layout.GroupLayout.TRAILING, jPanel3Layout.createSequentialGroup()
+        panelContatosLayout.setVerticalGroup(
+            panelContatosLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+            .add(org.jdesktop.layout.GroupLayout.TRAILING, panelContatosLayout.createSequentialGroup()
                 .add(18, 18, 18)
-                .add(jScrollPane1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 521, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                .add(scrollContatos, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 521, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
         );
 
-        jSplitPane1.setLeftComponent(jPanel3);
+        splitPanePrincipal.setLeftComponent(panelContatos);
 
-        jPanel4.setBackground(new java.awt.Color(255, 255, 255));
+        panelPrincipal.setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/agendatelefonica/interfacegrafica/imagem/icone-principal.png"))); // NOI18N
-        jLabel1.setToolTipText("");
+        labelImagem.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        labelImagem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/agendatelefonica/interfacegrafica/imagem/icone-principal.png"))); // NOI18N
+        labelImagem.setToolTipText("");
 
-        jLabel2.setFont(new java.awt.Font("Ubuntu Light", 0, 36)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setText("Yudi Tamashiro");
+        labelPanelNomeContato.setFont(new java.awt.Font("Ubuntu Light", 0, 36)); // NOI18N
+        labelPanelNomeContato.setForeground(new java.awt.Color(0, 0, 0));
+        labelPanelNomeContato.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        labelPanelNomeContato.setText("Yudi Tamashiro");
 
-        jLabel3.setFont(new java.awt.Font("Ubuntu Light", 0, 24)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel3.setText("+55 4002 8922");
+        labelNumeroContato.setFont(new java.awt.Font("Ubuntu Light", 0, 24)); // NOI18N
+        labelNumeroContato.setForeground(new java.awt.Color(0, 0, 0));
+        labelNumeroContato.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        labelNumeroContato.setText("+55 4002 8922");
 
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel1.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 60, 5));
+        panelButtons.setBackground(new java.awt.Color(255, 255, 255));
+        panelButtons.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 60, 5));
 
-        jButton1.setBackground(new java.awt.Color(255, 255, 255));
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/agendatelefonica/interfacegrafica/imagem/icones/icone-adicionar-contato-40.png"))); // NOI18N
-        jButton1.setToolTipText("");
-        jButton1.setBorder(null);
-        jPanel1.add(jButton1);
+        buttonAdd.setBackground(new java.awt.Color(255, 255, 255));
+        buttonAdd.setIcon(new javax.swing.ImageIcon(getClass().getResource("/agendatelefonica/interfacegrafica/imagem/icones/icone-adicionar-contato-40.png"))); // NOI18N
+        buttonAdd.setToolTipText("");
+        buttonAdd.setBorder(null);
+        panelButtons.add(buttonAdd);
 
-        jButton2.setBackground(new java.awt.Color(255, 255, 255));
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/agendatelefonica/interfacegrafica/imagem/icones/icone-info-40.png"))); // NOI18N
-        jButton2.setBorder(null);
-        jPanel1.add(jButton2);
+        buttonI.setBackground(new java.awt.Color(255, 255, 255));
+        buttonI.setIcon(new javax.swing.ImageIcon(getClass().getResource("/agendatelefonica/interfacegrafica/imagem/icones/icone-info-40.png"))); // NOI18N
+        buttonI.setBorder(null);
+        panelButtons.add(buttonI);
 
-        jButton3.setBackground(new java.awt.Color(255, 255, 255));
-        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/agendatelefonica/interfacegrafica/imagem/icones/icone-editar-40.png"))); // NOI18N
-        jButton3.setBorder(null);
-        jPanel1.add(jButton3);
+        buttonEdit.setBackground(new java.awt.Color(255, 255, 255));
+        buttonEdit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/agendatelefonica/interfacegrafica/imagem/icones/icone-editar-40.png"))); // NOI18N
+        buttonEdit.setBorder(null);
+        panelButtons.add(buttonEdit);
 
-        jButton4.setBackground(new java.awt.Color(255, 255, 255));
-        jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/agendatelefonica/interfacegrafica/imagem/icones/icone-excluir-40.png"))); // NOI18N
-        jButton4.setBorder(null);
-        jPanel1.add(jButton4);
+        buttonExcluir.setBackground(new java.awt.Color(255, 255, 255));
+        buttonExcluir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/agendatelefonica/interfacegrafica/imagem/icones/icone-excluir-40.png"))); // NOI18N
+        buttonExcluir.setBorder(null);
+        panelButtons.add(buttonExcluir);
 
-        org.jdesktop.layout.GroupLayout jPanel4Layout = new org.jdesktop.layout.GroupLayout(jPanel4);
-        jPanel4.setLayout(jPanel4Layout);
-        jPanel4Layout.setHorizontalGroup(
-            jPanel4Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-            .add(jLabel1, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .add(jLabel3, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .add(jPanel1, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 907, Short.MAX_VALUE)
-            .add(org.jdesktop.layout.GroupLayout.TRAILING, jPanel4Layout.createSequentialGroup()
-                .add(jLabel2, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        org.jdesktop.layout.GroupLayout panelPrincipalLayout = new org.jdesktop.layout.GroupLayout(panelPrincipal);
+        panelPrincipal.setLayout(panelPrincipalLayout);
+        panelPrincipalLayout.setHorizontalGroup(
+            panelPrincipalLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+            .add(labelImagem, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .add(labelNumeroContato, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .add(panelButtons, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 907, Short.MAX_VALUE)
+            .add(org.jdesktop.layout.GroupLayout.TRAILING, panelPrincipalLayout.createSequentialGroup()
+                .add(labelPanelNomeContato, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
-        jPanel4Layout.setVerticalGroup(
-            jPanel4Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-            .add(jPanel4Layout.createSequentialGroup()
+        panelPrincipalLayout.setVerticalGroup(
+            panelPrincipalLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+            .add(panelPrincipalLayout.createSequentialGroup()
                 .add(51, 51, 51)
-                .add(jLabel1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 258, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                .add(labelImagem, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 258, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                 .add(26, 26, 26)
-                .add(jLabel2)
+                .add(labelPanelNomeContato)
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
-                .add(jLabel3)
+                .add(labelNumeroContato)
                 .add(93, 93, 93)
-                .add(jPanel1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                .add(panelButtons, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(53, Short.MAX_VALUE))
         );
 
-        jSplitPane1.setRightComponent(jPanel4);
+        splitPanePrincipal.setRightComponent(panelPrincipal);
 
         org.jdesktop.layout.GroupLayout layout = new org.jdesktop.layout.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-            .add(jSplitPane1)
+            .add(splitPanePrincipal)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-            .add(jSplitPane1)
+            .add(splitPanePrincipal)
         );
 
         pack();
@@ -188,19 +188,19 @@ public class ProgramaPrincipalWindow extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
+    private javax.swing.JButton buttonAdd;
+    private javax.swing.JButton buttonEdit;
+    private javax.swing.JButton buttonExcluir;
+    private javax.swing.JButton buttonI;
     private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem1;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JList<String> jList1;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JSplitPane jSplitPane1;
+    private javax.swing.JLabel labelImagem;
+    private javax.swing.JLabel labelNumeroContato;
+    private javax.swing.JLabel labelPanelNomeContato;
+    private javax.swing.JList<String> listContatos;
+    private javax.swing.JPanel panelButtons;
+    private javax.swing.JPanel panelContatos;
+    private javax.swing.JPanel panelPrincipal;
+    private javax.swing.JScrollPane scrollContatos;
+    private javax.swing.JSplitPane splitPanePrincipal;
     // End of variables declaration//GEN-END:variables
 }
