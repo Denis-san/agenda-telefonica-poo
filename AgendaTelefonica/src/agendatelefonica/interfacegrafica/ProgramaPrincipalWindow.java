@@ -49,11 +49,10 @@ public class ProgramaPrincipalWindow extends javax.swing.JFrame {
         jList1.setFont(new java.awt.Font("Ubuntu Light", 0, 24)); // NOI18N
         jList1.setForeground(new java.awt.Color(0, 0, 0));
         jList1.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Mark Zuckeberg", "Luke Greenwood", "Lakia Ebert", "Tonia Pipkin" };
+            String[] strings = { "Yudi Tamashiro", "Luke Greenwood", "Lakia Ebert", "Tonia Pipkin" };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
-        jList1.setSelectedIndex(0);
         jList1.setSelectionBackground(new java.awt.Color(61, 143, 143));
         jList1.setSelectionForeground(new java.awt.Color(255, 255, 255));
         jScrollPane1.setViewportView(jList1);
