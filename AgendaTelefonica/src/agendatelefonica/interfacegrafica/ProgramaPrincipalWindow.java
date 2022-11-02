@@ -33,7 +33,6 @@ public class ProgramaPrincipalWindow extends javax.swing.JFrame {
         jCheckBoxMenuItem1.setText("jCheckBoxMenuItem1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(1080, 620));
         setResizable(false);
 
         jSplitPane1.setDividerLocation(300);
