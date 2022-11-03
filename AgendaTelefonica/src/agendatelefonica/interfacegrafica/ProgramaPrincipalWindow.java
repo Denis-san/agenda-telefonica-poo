@@ -1,15 +1,34 @@
 
 package agendatelefonica.interfacegrafica;
 
+import agendatelefonica.Contato;
+import java.util.Collections;
+import java.util.List;
+import javax.swing.DefaultButtonModel;
+import javax.swing.DefaultListModel;
+
 
 public class ProgramaPrincipalWindow extends javax.swing.JFrame {
 
+    private List <Contato> contatos;
    
-    public ProgramaPrincipalWindow() {
+    public ProgramaPrincipalWindow(List<Contato> contatos) {
         initComponents();
+        this.contatos = contatos;    
     }
 
-    
+    public void addContato(Contato contato){
+        contatos.add(contato);
+        Collections.sort(contatos);
+        DefaultListModel<String> modelList = new DefaultListModel<>();
+        
+        for(Contato c : contatos){
+            modelList.addElement(c.getNome());
+        }
+        
+        listContatos.setModel(modelList);
+
+    }
     
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -24,15 +43,17 @@ public class ProgramaPrincipalWindow extends javax.swing.JFrame {
         labelPanelNomeContato = new javax.swing.JLabel();
         labelNumeroContato = new javax.swing.JLabel();
         panelButtons = new javax.swing.JPanel();
-        buttonAdd = new javax.swing.JButton();
-        buttonI = new javax.swing.JButton();
-        buttonEdit = new javax.swing.JButton();
-        buttonExcluir = new javax.swing.JButton();
+        btnAdd = new javax.swing.JButton();
+        btnInfo = new javax.swing.JButton();
+        btnEdit = new javax.swing.JButton();
+        btnExcluir = new javax.swing.JButton();
 
         jCheckBoxMenuItem1.setSelected(true);
         jCheckBoxMenuItem1.setText("jCheckBoxMenuItem1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Agenda telefônica ");
+        setAutoRequestFocus(false);
         setResizable(false);
 
         splitPanePrincipal.setDividerLocation(300);
@@ -93,26 +114,46 @@ public class ProgramaPrincipalWindow extends javax.swing.JFrame {
         panelButtons.setBackground(new java.awt.Color(255, 255, 255));
         panelButtons.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 60, 5));
 
-        buttonAdd.setBackground(new java.awt.Color(255, 255, 255));
-        buttonAdd.setIcon(new javax.swing.ImageIcon(getClass().getResource("/agendatelefonica/interfacegrafica/imagem/icones/icone-adicionar-contato-40.png"))); // NOI18N
-        buttonAdd.setToolTipText("");
-        buttonAdd.setBorder(null);
-        panelButtons.add(buttonAdd);
+        btnAdd.setBackground(new java.awt.Color(255, 255, 255));
+        btnAdd.setIcon(new javax.swing.ImageIcon(getClass().getResource("/agendatelefonica/interfacegrafica/imagem/icones/icone-adicionar-contato-40.png"))); // NOI18N
+        btnAdd.setToolTipText("");
+        btnAdd.setBorder(null);
+        btnAdd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAddActionPerformed(evt);
+            }
+        });
+        panelButtons.add(btnAdd);
 
-        buttonI.setBackground(new java.awt.Color(255, 255, 255));
-        buttonI.setIcon(new javax.swing.ImageIcon(getClass().getResource("/agendatelefonica/interfacegrafica/imagem/icones/icone-info-40.png"))); // NOI18N
-        buttonI.setBorder(null);
-        panelButtons.add(buttonI);
+        btnInfo.setBackground(new java.awt.Color(255, 255, 255));
+        btnInfo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/agendatelefonica/interfacegrafica/imagem/icones/icone-info-40.png"))); // NOI18N
+        btnInfo.setBorder(null);
+        btnInfo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnInfoActionPerformed(evt);
+            }
+        });
+        panelButtons.add(btnInfo);
 
-        buttonEdit.setBackground(new java.awt.Color(255, 255, 255));
-        buttonEdit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/agendatelefonica/interfacegrafica/imagem/icones/icone-editar-40.png"))); // NOI18N
-        buttonEdit.setBorder(null);
-        panelButtons.add(buttonEdit);
+        btnEdit.setBackground(new java.awt.Color(255, 255, 255));
+        btnEdit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/agendatelefonica/interfacegrafica/imagem/icones/icone-editar-40.png"))); // NOI18N
+        btnEdit.setBorder(null);
+        btnEdit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEditActionPerformed(evt);
+            }
+        });
+        panelButtons.add(btnEdit);
 
-        buttonExcluir.setBackground(new java.awt.Color(255, 255, 255));
-        buttonExcluir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/agendatelefonica/interfacegrafica/imagem/icones/icone-excluir-40.png"))); // NOI18N
-        buttonExcluir.setBorder(null);
-        panelButtons.add(buttonExcluir);
+        btnExcluir.setBackground(new java.awt.Color(255, 255, 255));
+        btnExcluir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/agendatelefonica/interfacegrafica/imagem/icones/icone-excluir-40.png"))); // NOI18N
+        btnExcluir.setBorder(null);
+        btnExcluir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnExcluirActionPerformed(evt);
+            }
+        });
+        panelButtons.add(btnExcluir);
 
         org.jdesktop.layout.GroupLayout panelPrincipalLayout = new org.jdesktop.layout.GroupLayout(panelPrincipal);
         panelPrincipal.setLayout(panelPrincipalLayout);
@@ -153,45 +194,41 @@ public class ProgramaPrincipalWindow extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ProgramaPrincipalWindow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ProgramaPrincipalWindow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ProgramaPrincipalWindow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ProgramaPrincipalWindow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
+    private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
+        
+        NovoContatoDialog novoContato = new NovoContatoDialog(this,true,this);
+        
+        novoContato.setVisible(true);
+        
+    }//GEN-LAST:event_btnAddActionPerformed
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new ProgramaPrincipalWindow().setVisible(true);
-            }
-        });
-    }
+    private void btnInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInfoActionPerformed
+        DetalhesContatoDialog detalhesContato = new DetalhesContatoDialog(this,true);
+        
+        detalhesContato.setVisible(true);
+        
+    }//GEN-LAST:event_btnInfoActionPerformed
+
+    private void btnEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditActionPerformed
+        EditarContatoDialog editarContato = new EditarContatoDialog(this,true);
+        
+        editarContato.setVisible(true);
+    }//GEN-LAST:event_btnEditActionPerformed
+
+    private void btnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnExcluirActionPerformed
+
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton buttonAdd;
-    private javax.swing.JButton buttonEdit;
-    private javax.swing.JButton buttonExcluir;
-    private javax.swing.JButton buttonI;
+    private javax.swing.JButton btnAdd;
+    private javax.swing.JButton btnEdit;
+    private javax.swing.JButton btnExcluir;
+    private javax.swing.JButton btnInfo;
     private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem1;
     private javax.swing.JLabel labelImagem;
     private javax.swing.JLabel labelNumeroContato;
