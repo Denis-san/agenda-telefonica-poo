@@ -32,6 +32,17 @@ public class ProgramaPrincipalWindow extends javax.swing.JFrame {
 
     }
     
+    public void removerContato(Contato contato){
+        contatos.remove(contato);
+        DefaultListModel<String> listModel = new DefaultListModel<>();
+        for(Contato c : contatos){
+            listModel.addElement(c.getNome());
+                    
+        }
+        listContatos.setModel(listModel);
+        
+    }
+    
     
     public void editarContato(Contato contato){
         
@@ -222,7 +233,7 @@ public class ProgramaPrincipalWindow extends javax.swing.JFrame {
     private void btnInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInfoActionPerformed
         
         Contato contato = contatos.get(listContatos.getSelectedIndex());
-        DetalhesContatoDialog detalhesContato = new DetalhesContatoDialog(this,true,contato);
+        DetalhesContatoDialog detalhesContato = new DetalhesContatoDialog(this,true,contato,this);
         detalhesContato.setVisible(true);
          
     }//GEN-LAST:event_btnInfoActionPerformed
@@ -236,18 +247,8 @@ public class ProgramaPrincipalWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_btnEditActionPerformed
 
     private void btnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirActionPerformed
-        
-        contatos.remove(listContatos.getSelectedIndex());
-        
-        DefaultListModel<String> listModel = new DefaultListModel<>();
-        for(Contato c : contatos){
-            listModel.addElement(c.getNome());
-                    
-        }
-        
-        listContatos.setModel(listModel);
-        
-        
+        Contato contato = contatos.get(listContatos.getAnchorSelectionIndex());
+        removerContato(contato);
     }//GEN-LAST:event_btnExcluirActionPerformed
 
     private void listContatosValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_listContatosValueChanged

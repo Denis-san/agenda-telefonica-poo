@@ -6,10 +6,12 @@ import javax.swing.ImageIcon;
 
 public class DetalhesContatoDialog extends javax.swing.JDialog {
     private Contato contato;
-
-    public DetalhesContatoDialog(java.awt.Frame parent, boolean modal, Contato contato) {
+    private ProgramaPrincipalWindow programaPrincipal;
+    
+    public DetalhesContatoDialog(java.awt.Frame parent, boolean modal, Contato contato, ProgramaPrincipalWindow programaPrincipal) {
         super(parent, modal);
         this.contato = contato;
+        this.programaPrincipal = programaPrincipal;
         initComponents();
         
         
@@ -40,7 +42,8 @@ public class DetalhesContatoDialog extends javax.swing.JDialog {
         iconeLabel.setForeground(new java.awt.Color(255, 255, 255));
         iconeLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         iconeLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/agendatelefonica/interfacegrafica/imagem/back-img-13.png"))); // NOI18N
-        iconeLabel.setText("M");
+        iconeLabel.setText(contato.getNome().substring(0,1).toUpperCase()
+        );
         iconeLabel.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         labelNomeContato.setFont(new java.awt.Font("Ubuntu Light", 1, 18)); // NOI18N
@@ -71,12 +74,22 @@ public class DetalhesContatoDialog extends javax.swing.JDialog {
         btnEditar.setForeground(new java.awt.Color(255, 255, 255));
         btnEditar.setText("Editar");
         btnEditar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(61, 143, 143)));
+        btnEditar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEditarActionPerformed(evt);
+            }
+        });
 
         btnExcluir.setBackground(new java.awt.Color(255, 255, 255));
         btnExcluir.setFont(new java.awt.Font("Ubuntu Light", 1, 13)); // NOI18N
         btnExcluir.setForeground(new java.awt.Color(61, 143, 143));
         btnExcluir.setText("Excluir");
         btnExcluir.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(61, 143, 143)));
+        btnExcluir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnExcluirActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout panelPrincipalLayout = new javax.swing.GroupLayout(panelPrincipal);
         panelPrincipal.setLayout(panelPrincipalLayout);
@@ -138,6 +151,17 @@ public class DetalhesContatoDialog extends javax.swing.JDialog {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
+        EditarContatoDialog editarContato = new EditarContatoDialog(programaPrincipal, true, contato, programaPrincipal);
+        editarContato.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_btnEditarActionPerformed
+
+    private void btnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirActionPerformed
+        programaPrincipal.removerContato(contato);
+        dispose();
+    }//GEN-LAST:event_btnExcluirActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
