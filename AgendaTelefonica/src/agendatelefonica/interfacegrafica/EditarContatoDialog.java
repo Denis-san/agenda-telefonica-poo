@@ -40,6 +40,7 @@ public class EditarContatoDialog extends javax.swing.JDialog {
         labelNome.setText("Nome:");
 
         inputTextNome.setBackground(new java.awt.Color(255, 255, 255));
+        inputTextNome.setForeground(new java.awt.Color(0, 0, 0));
         inputTextNome.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 inputTextNomeActionPerformed(evt);
@@ -56,10 +57,17 @@ public class EditarContatoDialog extends javax.swing.JDialog {
 
         textAreaDetalhes.setBackground(new java.awt.Color(255, 255, 255));
         textAreaDetalhes.setColumns(20);
+        textAreaDetalhes.setForeground(new java.awt.Color(0, 0, 0));
         textAreaDetalhes.setRows(5);
         scrollPanelTextArea.setViewportView(textAreaDetalhes);
 
         inputTextNumero.setBackground(new java.awt.Color(255, 255, 255));
+        inputTextNumero.setForeground(new java.awt.Color(0, 0, 0));
+        try {
+            inputTextNumero.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("(##)-####-####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
 
         btnSalvar.setBackground(new java.awt.Color(61, 143, 143));
         btnSalvar.setForeground(new java.awt.Color(255, 255, 255));

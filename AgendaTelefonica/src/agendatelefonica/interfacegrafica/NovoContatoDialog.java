@@ -14,9 +14,7 @@ public class NovoContatoDialog extends javax.swing.JDialog {
         this.programaPrincipal = programaPrincipal;
         
     }
-    
-
-    
+   
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -48,6 +46,7 @@ public class NovoContatoDialog extends javax.swing.JDialog {
         labelNome.setText("Nome:");
 
         textNome.setBackground(new java.awt.Color(255, 255, 255));
+        textNome.setForeground(new java.awt.Color(0, 0, 0));
         textNome.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 textNomeActionPerformed(evt);
@@ -64,10 +63,17 @@ public class NovoContatoDialog extends javax.swing.JDialog {
 
         textAreaDetalhes.setBackground(new java.awt.Color(255, 255, 255));
         textAreaDetalhes.setColumns(20);
+        textAreaDetalhes.setForeground(new java.awt.Color(0, 0, 0));
         textAreaDetalhes.setRows(5);
         scrollPanelDetalhes.setViewportView(textAreaDetalhes);
 
         formattedNumero.setBackground(new java.awt.Color(255, 255, 255));
+        formattedNumero.setForeground(new java.awt.Color(0, 0, 0));
+        try {
+            formattedNumero.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("(##)-####-####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
 
         buttonSalvar.setBackground(new java.awt.Color(61, 143, 143));
         buttonSalvar.setForeground(new java.awt.Color(255, 255, 255));
@@ -165,12 +171,14 @@ public class NovoContatoDialog extends javax.swing.JDialog {
         String detalhes = textAreaDetalhes.getText();
         Contato contato = new Contato(nome, numero, detalhes);
         programaPrincipal.addContato(contato);
-      
-        
+        dispose();
+    
     }//GEN-LAST:event_buttonSalvarActionPerformed
 
     private void buttonCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCancelarActionPerformed
         // TODO add your handling code here:
+        
+        dispose();
     }//GEN-LAST:event_buttonCancelarActionPerformed
 
     

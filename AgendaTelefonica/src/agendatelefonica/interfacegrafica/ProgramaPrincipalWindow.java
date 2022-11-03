@@ -68,13 +68,13 @@ public class ProgramaPrincipalWindow extends javax.swing.JFrame {
         listContatos.setBorder(null);
         listContatos.setFont(new java.awt.Font("Ubuntu Light", 0, 24)); // NOI18N
         listContatos.setForeground(new java.awt.Color(0, 0, 0));
-        listContatos.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Yudi Tamashiro", "Luke Greenwood", "Lakia Ebert", "Tonia Pipkin" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
-        });
         listContatos.setSelectionBackground(new java.awt.Color(61, 143, 143));
         listContatos.setSelectionForeground(new java.awt.Color(255, 255, 255));
+        listContatos.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
+            public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
+                listContatosValueChanged(evt);
+            }
+        });
         scrollContatos.setViewportView(listContatos);
 
         org.jdesktop.layout.GroupLayout panelContatosLayout = new org.jdesktop.layout.GroupLayout(panelContatos);
@@ -118,6 +118,7 @@ public class ProgramaPrincipalWindow extends javax.swing.JFrame {
         btnAdd.setIcon(new javax.swing.ImageIcon(getClass().getResource("/agendatelefonica/interfacegrafica/imagem/icones/icone-adicionar-contato-40.png"))); // NOI18N
         btnAdd.setToolTipText("");
         btnAdd.setBorder(null);
+        btnAdd.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnAdd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAddActionPerformed(evt);
@@ -128,6 +129,7 @@ public class ProgramaPrincipalWindow extends javax.swing.JFrame {
         btnInfo.setBackground(new java.awt.Color(255, 255, 255));
         btnInfo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/agendatelefonica/interfacegrafica/imagem/icones/icone-info-40.png"))); // NOI18N
         btnInfo.setBorder(null);
+        btnInfo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnInfo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnInfoActionPerformed(evt);
@@ -138,6 +140,7 @@ public class ProgramaPrincipalWindow extends javax.swing.JFrame {
         btnEdit.setBackground(new java.awt.Color(255, 255, 255));
         btnEdit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/agendatelefonica/interfacegrafica/imagem/icones/icone-editar-40.png"))); // NOI18N
         btnEdit.setBorder(null);
+        btnEdit.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnEdit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnEditActionPerformed(evt);
@@ -148,6 +151,7 @@ public class ProgramaPrincipalWindow extends javax.swing.JFrame {
         btnExcluir.setBackground(new java.awt.Color(255, 255, 255));
         btnExcluir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/agendatelefonica/interfacegrafica/imagem/icones/icone-excluir-40.png"))); // NOI18N
         btnExcluir.setBorder(null);
+        btnExcluir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnExcluir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnExcluirActionPerformed(evt);
@@ -221,6 +225,11 @@ public class ProgramaPrincipalWindow extends javax.swing.JFrame {
     private void btnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnExcluirActionPerformed
+
+    private void listContatosValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_listContatosValueChanged
+        labelPanelNomeContato.setText(listContatos.getSelectedValue());
+        labelNumeroContato.setText(contatos.get(listContatos.getSelectedIndex()).getNumero());
+    }//GEN-LAST:event_listContatosValueChanged
 
     
 
