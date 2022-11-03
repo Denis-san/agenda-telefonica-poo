@@ -32,6 +32,14 @@ public class ProgramaPrincipalWindow extends javax.swing.JFrame {
 
     }
     
+    
+    public void editarContato(Contato contato){
+        
+        int indexContato = listContatos.getSelectedIndex();
+        contatos.set(indexContato, contato);
+
+    }
+    
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
@@ -220,9 +228,11 @@ public class ProgramaPrincipalWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_btnInfoActionPerformed
 
     private void btnEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditActionPerformed
-        EditarContatoDialog editarContato = new EditarContatoDialog(this,true);
-        
+        Contato contato;
+        contato = contatos.get(listContatos.getSelectedIndex());
+        EditarContatoDialog editarContato = new EditarContatoDialog(this,true,contato,this);
         editarContato.setVisible(true);
+   
     }//GEN-LAST:event_btnEditActionPerformed
 
     private void btnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirActionPerformed

@@ -1,11 +1,20 @@
 
 package agendatelefonica.interfacegrafica;
 
-public class EditarContatoDialog extends javax.swing.JDialog {
+import agendatelefonica.Contato;
 
-    public EditarContatoDialog(java.awt.Frame parent, boolean modal) {
+public class EditarContatoDialog extends javax.swing.JDialog {
+    private Contato contato;
+    private ProgramaPrincipalWindow programaPrincipal;
+    
+    
+    public EditarContatoDialog(java.awt.Frame parent, boolean modal, Contato contato, ProgramaPrincipalWindow programaPrincipal) {
+        
         super(parent, modal);
+        this.contato = contato;
+        this.programaPrincipal = programaPrincipal;
         initComponents();
+        
     }
 
     
@@ -41,6 +50,7 @@ public class EditarContatoDialog extends javax.swing.JDialog {
 
         inputTextNome.setBackground(new java.awt.Color(255, 255, 255));
         inputTextNome.setForeground(new java.awt.Color(0, 0, 0));
+        inputTextNome.setText(contato.getNome());
         inputTextNome.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 inputTextNomeActionPerformed(evt);
@@ -59,6 +69,7 @@ public class EditarContatoDialog extends javax.swing.JDialog {
         textAreaDetalhes.setColumns(20);
         textAreaDetalhes.setForeground(new java.awt.Color(0, 0, 0));
         textAreaDetalhes.setRows(5);
+        textAreaDetalhes.setText(contato.getDetalhes());
         scrollPanelTextArea.setViewportView(textAreaDetalhes);
 
         inputTextNumero.setBackground(new java.awt.Color(255, 255, 255));
@@ -68,6 +79,7 @@ public class EditarContatoDialog extends javax.swing.JDialog {
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
+        inputTextNumero.setText(contato.getNumero());
 
         btnSalvar.setBackground(new java.awt.Color(61, 143, 143));
         btnSalvar.setForeground(new java.awt.Color(255, 255, 255));
@@ -160,11 +172,18 @@ public class EditarContatoDialog extends javax.swing.JDialog {
     }//GEN-LAST:event_inputTextNomeActionPerformed
 
     private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
-        // TODO add your handling code here:
+        
+        
+        String nome = inputTextNome.getText();
+        String numero = inputTextNumero.getText();
+        String detalhes = textAreaDetalhes.getText();
+        Contato contato = new Contato(nome, numero, detalhes);
+        programaPrincipal.editarContato(contato);
+        dispose();
     }//GEN-LAST:event_btnSalvarActionPerformed
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
-        // TODO add your handling code here:
+        dispose();
     }//GEN-LAST:event_btnCancelarActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
