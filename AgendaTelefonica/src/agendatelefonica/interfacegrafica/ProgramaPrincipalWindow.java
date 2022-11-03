@@ -14,7 +14,9 @@ public class ProgramaPrincipalWindow extends javax.swing.JFrame {
    
     public ProgramaPrincipalWindow(List<Contato> contatos) {
         initComponents();
-        this.contatos = contatos;    
+        this.contatos = contatos;
+        
+        
     }
 
     public void addContato(Contato contato){
@@ -210,10 +212,11 @@ public class ProgramaPrincipalWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAddActionPerformed
 
     private void btnInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInfoActionPerformed
-        DetalhesContatoDialog detalhesContato = new DetalhesContatoDialog(this,true);
         
+        Contato contato = contatos.get(listContatos.getSelectedIndex());
+        DetalhesContatoDialog detalhesContato = new DetalhesContatoDialog(this,true,contato);
         detalhesContato.setVisible(true);
-        
+         
     }//GEN-LAST:event_btnInfoActionPerformed
 
     private void btnEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditActionPerformed
