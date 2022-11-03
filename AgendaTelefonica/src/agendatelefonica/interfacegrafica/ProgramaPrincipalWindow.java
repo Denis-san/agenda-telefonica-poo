@@ -226,12 +226,30 @@ public class ProgramaPrincipalWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_btnEditActionPerformed
 
     private void btnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirActionPerformed
-        // TODO add your handling code here:
+        
+        contatos.remove(listContatos.getSelectedIndex());
+        
+        DefaultListModel<String> listModel = new DefaultListModel<>();
+        for(Contato c : contatos){
+            listModel.addElement(c.getNome());
+                    
+        }
+        
+        listContatos.setModel(listModel);
+        
+        
     }//GEN-LAST:event_btnExcluirActionPerformed
 
     private void listContatosValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_listContatosValueChanged
-        labelPanelNomeContato.setText(listContatos.getSelectedValue());
-        labelNumeroContato.setText(contatos.get(listContatos.getSelectedIndex()).getNumero());
+       
+        if(listContatos.isSelectionEmpty()){
+            labelPanelNomeContato.setText("Contato");
+            labelNumeroContato.setText("");
+            
+        }else{
+            labelPanelNomeContato.setText(listContatos.getSelectedValue());
+            labelNumeroContato.setText(contatos.get(listContatos.getSelectedIndex()).getNumero());
+        }
     }//GEN-LAST:event_listContatosValueChanged
 
     
