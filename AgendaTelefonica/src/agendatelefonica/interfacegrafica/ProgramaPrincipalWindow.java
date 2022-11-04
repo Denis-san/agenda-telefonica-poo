@@ -125,12 +125,11 @@ public class ProgramaPrincipalWindow extends javax.swing.JFrame {
         labelPanelNomeContato.setFont(new java.awt.Font("Ubuntu Light", 0, 36)); // NOI18N
         labelPanelNomeContato.setForeground(new java.awt.Color(0, 0, 0));
         labelPanelNomeContato.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        labelPanelNomeContato.setText("Yudi Tamashiro");
+        labelPanelNomeContato.setText("Contatos");
 
         labelNumeroContato.setFont(new java.awt.Font("Ubuntu Light", 0, 24)); // NOI18N
         labelNumeroContato.setForeground(new java.awt.Color(0, 0, 0));
         labelNumeroContato.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        labelNumeroContato.setText("+55 4002 8922");
 
         panelButtons.setBackground(new java.awt.Color(255, 255, 255));
         panelButtons.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 60, 5));
@@ -202,7 +201,7 @@ public class ProgramaPrincipalWindow extends javax.swing.JFrame {
                 .add(labelNumeroContato)
                 .add(93, 93, 93)
                 .add(panelButtons, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(53, Short.MAX_VALUE))
+                .addContainerGap(82, Short.MAX_VALUE))
         );
 
         splitPanePrincipal.setRightComponent(panelPrincipal);
