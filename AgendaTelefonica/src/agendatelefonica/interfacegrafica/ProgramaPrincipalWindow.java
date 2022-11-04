@@ -1,56 +1,55 @@
-
 package agendatelefonica.interfacegrafica;
 
 import agendatelefonica.Contato;
 import java.util.Collections;
 import java.util.List;
-import javax.swing.DefaultButtonModel;
 import javax.swing.DefaultListModel;
-
 
 public class ProgramaPrincipalWindow extends javax.swing.JFrame {
 
-    private List <Contato> contatos;
-   
+    private List<Contato> contatos;
+
     public ProgramaPrincipalWindow(List<Contato> contatos) {
         initComponents();
         this.contatos = contatos;
-        
-        
+
     }
 
-    public void addContato(Contato contato){
+    public void addContato(Contato contato) {
         contatos.add(contato);
         Collections.sort(contatos);
         DefaultListModel<String> modelList = new DefaultListModel<>();
-        
-        for(Contato c : contatos){
+
+        for (Contato c : contatos) {
             modelList.addElement(c.getNome());
         }
-        
+
         listContatos.setModel(modelList);
 
     }
-    
-    public void removerContato(Contato contato){
+
+    public void removerContato(Contato contato) {
         contatos.remove(contato);
         DefaultListModel<String> listModel = new DefaultListModel<>();
-        for(Contato c : contatos){
+        for (Contato c : contatos) {
             listModel.addElement(c.getNome());
-                    
         }
         listContatos.setModel(listModel);
-        
-    }
-    
-    
-    public void editarContato(Contato contato){
-        
-        int indexContato = listContatos.getSelectedIndex();
-        contatos.set(indexContato, contato);
 
     }
-    
+
+    public void editarContato(Contato contato) {
+
+        int indexContato = listContatos.getSelectedIndex();
+        contatos.set(indexContato, contato);
+        Collections.sort(contatos);
+        
+        DefaultListModel listModel = (DefaultListModel) listContatos.getModel();
+        
+        listModel.setElementAt(contato.getNome(), contatos.indexOf(contato));
+
+    }
+
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
@@ -223,27 +222,27 @@ public class ProgramaPrincipalWindow extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
-        
-        NovoContatoDialog novoContato = new NovoContatoDialog(this,true,this);
-        
+
+        NovoContatoDialog novoContato = new NovoContatoDialog(this, true, this);
+
         novoContato.setVisible(true);
-        
+
     }//GEN-LAST:event_btnAddActionPerformed
 
     private void btnInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInfoActionPerformed
-        
+
         Contato contato = contatos.get(listContatos.getSelectedIndex());
-        DetalhesContatoDialog detalhesContato = new DetalhesContatoDialog(this,true,contato,this);
+        DetalhesContatoDialog detalhesContato = new DetalhesContatoDialog(this, true, contato, this);
         detalhesContato.setVisible(true);
-         
+
     }//GEN-LAST:event_btnInfoActionPerformed
 
     private void btnEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditActionPerformed
         Contato contato;
         contato = contatos.get(listContatos.getSelectedIndex());
-        EditarContatoDialog editarContato = new EditarContatoDialog(this,true,contato,this);
+        EditarContatoDialog editarContato = new EditarContatoDialog(this, true, contato, this);
         editarContato.setVisible(true);
-   
+
     }//GEN-LAST:event_btnEditActionPerformed
 
     private void btnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirActionPerformed
@@ -252,18 +251,17 @@ public class ProgramaPrincipalWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_btnExcluirActionPerformed
 
     private void listContatosValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_listContatosValueChanged
-       
-        if(listContatos.isSelectionEmpty()){
+
+        if (listContatos.isSelectionEmpty()) {
             labelPanelNomeContato.setText("Contato");
             labelNumeroContato.setText("");
-            
-        }else{
+
+        } else {
             labelPanelNomeContato.setText(listContatos.getSelectedValue());
             labelNumeroContato.setText(contatos.get(listContatos.getSelectedIndex()).getNumero());
         }
     }//GEN-LAST:event_listContatosValueChanged
 
-    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAdd;

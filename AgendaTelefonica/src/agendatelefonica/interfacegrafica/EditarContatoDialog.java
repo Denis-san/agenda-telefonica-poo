@@ -173,7 +173,6 @@ public class EditarContatoDialog extends javax.swing.JDialog {
 
     private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
         
-        
         String nome = inputTextNome.getText();
         String numero = inputTextNumero.getText();
         String detalhes = textAreaDetalhes.getText();

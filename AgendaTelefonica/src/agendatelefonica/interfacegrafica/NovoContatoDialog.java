@@ -7,7 +7,6 @@ public class NovoContatoDialog extends javax.swing.JDialog {
 
     private ProgramaPrincipalWindow programaPrincipal;
 
-    
     public NovoContatoDialog(java.awt.Frame parent, boolean modal, ProgramaPrincipalWindow programaPrincipal) {
         super(parent, modal);
         initComponents();
