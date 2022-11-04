@@ -246,7 +246,7 @@ public class ProgramaPrincipalWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_btnEditActionPerformed
 
     private void btnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirActionPerformed
-        Contato contato = contatos.get(listContatos.getAnchorSelectionIndex());
+        Contato contato = contatos.get(listContatos.getSelectedIndex());
         removerContato(contato);
     }//GEN-LAST:event_btnExcluirActionPerformed
 
