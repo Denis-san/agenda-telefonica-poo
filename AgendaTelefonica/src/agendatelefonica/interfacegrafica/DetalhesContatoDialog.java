@@ -1,21 +1,20 @@
-
 package agendatelefonica.interfacegrafica;
 
 import agendatelefonica.Contato;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 
 public class DetalhesContatoDialog extends javax.swing.JDialog {
+
     private Contato contato;
     private ProgramaPrincipalWindow programaPrincipal;
-    
+
     public DetalhesContatoDialog(java.awt.Frame parent, boolean modal, Contato contato, ProgramaPrincipalWindow programaPrincipal) {
         super(parent, modal);
         this.contato = contato;
         this.programaPrincipal = programaPrincipal;
         initComponents();
-        
-        
-        
+
     }
 
     @SuppressWarnings("unchecked")
@@ -155,11 +154,20 @@ public class DetalhesContatoDialog extends javax.swing.JDialog {
     private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
         EditarContatoDialog editarContato = new EditarContatoDialog(programaPrincipal, true, contato, programaPrincipal);
         editarContato.setVisible(true);
+
+        JOptionPane.showMessageDialog(this, "Contato salvo com sucesso!");
+
         dispose();
     }//GEN-LAST:event_btnEditarActionPerformed
 
     private void btnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirActionPerformed
-        programaPrincipal.removerContato(contato);
+
+        int opcao = JOptionPane.showConfirmDialog(this, "Deseja realmente excluir " + contato.getNome() + "?", "Confirmar exclusão", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE);
+
+        if (opcao == 0) {
+            programaPrincipal.removerContato(contato);
+        }
+
         dispose();
     }//GEN-LAST:event_btnExcluirActionPerformed
 

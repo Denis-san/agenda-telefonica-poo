@@ -2,6 +2,7 @@
 package agendatelefonica.interfacegrafica;
 
 import agendatelefonica.Contato;
+import javax.swing.JOptionPane;
 
 public class NovoContatoDialog extends javax.swing.JDialog {
 
@@ -170,6 +171,9 @@ public class NovoContatoDialog extends javax.swing.JDialog {
         String detalhes = textAreaDetalhes.getText();
         Contato contato = new Contato(nome, numero, detalhes);
         programaPrincipal.addContato(contato);
+        
+        JOptionPane.showMessageDialog(this, "Contato salvo com sucesso!");
+        
         dispose();
     
     }//GEN-LAST:event_buttonSalvarActionPerformed

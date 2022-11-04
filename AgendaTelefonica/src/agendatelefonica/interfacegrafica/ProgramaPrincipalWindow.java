@@ -4,6 +4,7 @@ import agendatelefonica.Contato;
 import java.util.Collections;
 import java.util.List;
 import javax.swing.DefaultListModel;
+import javax.swing.JOptionPane;
 
 public class ProgramaPrincipalWindow extends javax.swing.JFrame {
 
@@ -43,9 +44,9 @@ public class ProgramaPrincipalWindow extends javax.swing.JFrame {
         int indexContato = listContatos.getSelectedIndex();
         contatos.set(indexContato, contato);
         Collections.sort(contatos);
-        
+
         DefaultListModel listModel = (DefaultListModel) listContatos.getModel();
-        
+
         listModel.setElementAt(contato.getNome(), contatos.indexOf(contato));
 
     }
@@ -231,6 +232,10 @@ public class ProgramaPrincipalWindow extends javax.swing.JFrame {
 
     private void btnInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInfoActionPerformed
 
+        if (listContatos.isSelectionEmpty()) {
+            return;
+        }
+
         Contato contato = contatos.get(listContatos.getSelectedIndex());
         DetalhesContatoDialog detalhesContato = new DetalhesContatoDialog(this, true, contato, this);
         detalhesContato.setVisible(true);
@@ -238,6 +243,11 @@ public class ProgramaPrincipalWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_btnInfoActionPerformed
 
     private void btnEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditActionPerformed
+
+        if (listContatos.isSelectionEmpty()) {
+            return;
+        }
+
         Contato contato;
         contato = contatos.get(listContatos.getSelectedIndex());
         EditarContatoDialog editarContato = new EditarContatoDialog(this, true, contato, this);
@@ -246,8 +256,19 @@ public class ProgramaPrincipalWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_btnEditActionPerformed
 
     private void btnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirActionPerformed
+
+        if (listContatos.isSelectionEmpty()) {
+            return;
+        }
+
         Contato contato = contatos.get(listContatos.getSelectedIndex());
-        removerContato(contato);
+
+        int opcao = JOptionPane.showConfirmDialog(this, "Deseja realmente excluir " + contato.getNome() + "?", "Confirmar exclusão", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE);
+
+        if (opcao == 0) {
+            removerContato(contato);
+        }
+
     }//GEN-LAST:event_btnExcluirActionPerformed
 
     private void listContatosValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_listContatosValueChanged
